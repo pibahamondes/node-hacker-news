@@ -12,14 +12,13 @@ var app = express();
 app.set('view engine', 'hbs');
 app.use(express.static(publicPath));
 
-hbs.registerHelper('heDecode', (text) => text ? he.decode(text) : undefined);
-app.get('/readMore', (req, res) => {
-  res.render('../mainsite/readMore.hbs');
-})
-hbs.registerHelper('readMore1', (art) => fifi(art));
-
 var title = art => art.title ? art.title : art.story_title ? art.story_title : 'Untitled';
+hbs.registerHelper('titler', (art) => title(art));
 var body = art => art.comment_text ? art.comment_text : art.story_text;
+hbs.registerHelper('bodier', (art) => {
+  return he.decode(body(art));
+});
+
 var printArticle = (art) => {
   var s = `Author: ${art.author}\n`;
   s += `Title: ${title(art)}\n`;
@@ -49,6 +48,10 @@ request({url: API, json: true}, (error, response, body) =>{
   }
 );
 });
+
+app.get('/readMore', (req, res) => {
+  res.render('../mainsite/readMore.hbs');
+})
 
 
 

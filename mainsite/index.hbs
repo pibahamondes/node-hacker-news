@@ -43,14 +43,14 @@
               {{#each hits}}
                 <!-- Blog Post -->
                 <h2>
-                  {{title}} {{story_title}}
+                  {{titler this}}
                   <small>
                     by {{author}} <a href = #><span class="glyphicon glyphicon-trash"></span></a>
                   </small>
                   <a class="btn btn-primary" href="/readMore"> Read more!</a>
                 </h2>
                 <p><span class="glyphicon glyphicon-time"></span> Posted on {{created_at}}</p>
-                <p>{{heDecode comment_text}}</p>
+                <p>{{bodier this}}</p>
                 <hr>
               {{/each}}
             </div>
