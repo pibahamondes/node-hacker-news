@@ -1,0 +1,23 @@
+
+<head>
+<title>Hacker News</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+</head>
+<body>
+<div id="wrap">
+  <div id="header">
+    <h1><a href="#">Hacker News</a></h1>
+    <h2>Blog about hacking </h2>
+  </div>
+  <div id="content">
+    {{#each hits}}
+    <h2>{{titleArt this}}</h2>
+    <p>Published by {{author}}</p>
+    <p class="meta">{{created_at}}</p>
+    <p>{{bodyArt this}}</p>
+    <p>&nbsp;</p>
+    {{/each}}
+  </div>
+</div>
+</body>
+</html>
