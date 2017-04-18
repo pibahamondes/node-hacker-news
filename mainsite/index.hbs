@@ -20,13 +20,7 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Hacker News</a>
+                <h1 class="navbar-brand" href="#">Hacker News</h1>
             </div>
         </div>
         <!-- /.container -->
@@ -42,15 +36,16 @@
               </h1>
               {{#each hits}}
                 <!-- Blog Post -->
-                <h2>
+                <h3>
                   {{titler this}}
                   <small>
                     by {{author}} <a href = #><span class="glyphicon glyphicon-trash"></span></a>
                   </small>
                   <a class="btn btn-primary" href="/readMore"> Read more!</a>
-                </h2>
+                </h3>
                 <p><span class="glyphicon glyphicon-time"></span> Posted on {{created_at}}</p>
                 <p>{{bodier this}}</p>
+                <p><a href={{urlize this}}>{{urlize this}}</a></p>
                 <hr>
               {{/each}}
             </div>

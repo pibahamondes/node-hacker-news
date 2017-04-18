@@ -14,10 +14,10 @@ app.use(express.static(publicPath));
 
 var title = art => art.title ? art.title : art.story_title ? art.story_title : 'Untitled';
 hbs.registerHelper('titler', (art) => title(art));
-var body = art => art.comment_text ? art.comment_text : art.story_text;
-hbs.registerHelper('bodier', (art) => {
-  return he.decode(body(art));
-});
+var body = art => art.comment_text ? art.comment_text : art.story_text ? art.story_text : '';
+var url = art => art.url ? art.url : "" ;
+hbs.registerHelper('bodier', (art) => he.decode(body(art)));
+hbs.registerHelper('urlize', (art) => url(art));
 
 var printArticle = (art) => {
   var s = `Author: ${art.author}\n`;
